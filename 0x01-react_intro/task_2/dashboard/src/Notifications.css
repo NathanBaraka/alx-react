@@ -1,0 +1,15 @@
+/* src/Notifications.css */
+
+.Notifications {
+    border: 1px solid #eaeaea;
+    padding: 20px;
+}
+
+/* Style based on data attributes */
+li[data-priority="default"] {
+    color: blue;
+}
+
+li[data-priority="urgent"] {
+    color: red;
+}
