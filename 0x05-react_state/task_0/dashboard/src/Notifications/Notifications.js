@@ -6,16 +6,19 @@ class Notifications extends React.Component {
     const { displayDrawer, handleDisplayDrawer, handleHideDrawer } = this.props;
 
     return (
-      <div className="Notifications">
-        <div onClick={handleDisplayDrawer}>
-          <p>Your notifications</p>
-        </div>
-        {displayDrawer ? (
-          <div className="drawer">
-            <button onClick={handleHideDrawer}>Close</button>
-            {/* Rest of the notification content */}
+      <div>
+        <div onClick={handleDisplayDrawer} data-testid="menu-item">Your notifications</div>
+        {displayDrawer && (
+          <div className="Notifications">
+            <button
+              onClick={handleHideDrawer}
+              data-testid="close-button"
+            >
+              Close
+            </button>
+            <p>Here is the list of notifications</p>
           </div>
-        ) : null}
+        )}
       </div>
     );
   }
@@ -24,13 +27,13 @@ class Notifications extends React.Component {
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
   handleDisplayDrawer: PropTypes.func,
-  handleHideDrawer: PropTypes.func
+  handleHideDrawer: PropTypes.func,
 };
 
 Notifications.defaultProps = {
   displayDrawer: false,
   handleDisplayDrawer: () => {},
-  handleHideDrawer: () => {}
+  handleHideDrawer: () => {},
 };
 
 export default Notifications;
