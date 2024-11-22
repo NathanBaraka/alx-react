@@ -1,11 +1,12 @@
 // 2-nested.js
+
 export default function accessImmutableObject(object, array) {
   return array.reduce((acc, key) => {
-    // Check if the accumulated value is defined and an object
-    if (acc && typeof acc === 'object') {
-      return acc[key]; // Return the next nested value
+    // If acc becomes undefined or null at any point, return undefined
+    if (acc && acc.hasOwnProperty(key)) {
+      return acc[key];
     }
-    return undefined; // Return undefined if the key does not exist
+    return undefined;
   }, object);
 }
 
