@@ -1,7 +1,5 @@
-// 4-mutations.js
 import { Map } from 'immutable';
 
-// Create an Immutable Map with the specified object
 export const map = Map({
   1: 'Liam',
   2: 'Noah',
@@ -11,8 +9,6 @@ export const map = Map({
   6: 'Lucas',
 });
 
-// Modify the values for the specified indices to create map2
-export const map2 = map
-  .set(2, 'Benjamin') // Modify the value for index 2
-  .set(4, 'Oliver');  // Modify the value for index 4
-
+export const map2 = map.withMutations((mapItem) => {
+  mapItem.set(2, 'Benjamin').set(4, 'Oliver');
+});

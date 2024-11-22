@@ -1,12 +1,7 @@
-// 2-nested.js
+import { fromJS } from 'immutable';
 
 export default function accessImmutableObject(object, array) {
-  return array.reduce((acc, key) => {
-    // If acc becomes undefined or null at any point, return undefined
-    if (acc && acc.hasOwnProperty(key)) {
-      return acc[key];
-    }
-    return undefined;
-  }, object);
-}
+  const mappedObj = fromJS(object);
 
+  return mappedObj.getIn(array, undefined);
+}
